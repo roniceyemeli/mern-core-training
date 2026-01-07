@@ -1,7 +1,6 @@
 // server.js
 require("dotenv").config();
 const express = require("express");
-const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.route");
 const connectDB = require("./config/db");
 
