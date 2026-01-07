@@ -1,8 +1,6 @@
 // middleware/auth.js
 const jwt = require("jsonwebtoken");
-const createUserRepository = require("../repositories/user.repository");
-
-const userRepository = createUserRepository();
+const userRepository = require("../repositories/user.repository");
 
 async function protect(req, res, next) {
   let token = null;
