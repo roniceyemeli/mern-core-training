@@ -1,9 +1,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
-const createUserRepository = require("../repositories/user.repository");
-
-const userRepository = createUserRepository();
+const userRepository = require("../repositories/user.repository");
 
 function signAccessToken(id) {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "15m" });

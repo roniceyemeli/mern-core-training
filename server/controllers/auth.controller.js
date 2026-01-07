@@ -1,7 +1,7 @@
 const {
   registerSchema,
   loginSchema,
-} = require("../validation/auth.validation");
+} = require("../validations/auth.validation");
 
 const {
   registerUser,

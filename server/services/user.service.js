@@ -1,7 +1,6 @@
 // services/user.service.js
 
-const UserRepository = require("../repositories/user.repository");
-const userRepository = UserRepository();
+const userRepository = require("../repositories/user.repository");
 
 async function registerUser(data) {
   const emailTaken = await userRepository.isEmailTaken(data.email);
