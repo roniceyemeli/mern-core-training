@@ -1,5 +1,7 @@
 // server.js
-require("dotenv").config();
+require("dotenv").config({
+  path: process.env.NODE_ENV === "production" ? ".env" : ".env.local",
+});
 const express = require("express");
 const authRoutes = require("./routes/auth.route");
 const userRoutes = require("./routes/user.route");
