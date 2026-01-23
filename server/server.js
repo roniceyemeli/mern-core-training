@@ -1,7 +1,5 @@
 // server.js
-require("dotenv").config({
-  path: process.env.NODE_ENV === "production" ? ".env" : ".env.local",
-});
+require("dotenv").config();
 const express = require("express");
 const authRoutes = require("./routes/auth.route");
 const userRoutes = require("./routes/user.route");
@@ -19,7 +17,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Server error" });
 });
 
-connectDB(process.env.MONGODB_URI);
+connectDB(process.env.MONGO_DB_URL)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MongoDB", err);
+  });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
